@@ -16,17 +16,17 @@ const Home = () => (
     <div className="flex justify-center space-x-4 mb-6">
       <img
         src="./images/floor_common_room.jpg"
-        alt="Common Room"
+        alt="A Section"
         className="w-32 h-32 object-cover rounded-lg shadow-md"
       />
       <img
         src="./images/floor_study_area.jpg"
-        alt="Study Area"
+        alt="B section"
         className="w-32 h-32 object-cover rounded-lg shadow-md"
       />
       <img
         src="./images/floor_braai_area.jpg"
-        alt="Braai Area"
+        alt="Kitchen"
         className="w-32 h-32 object-cover rounded-lg shadow-md"
       />
     </div>
