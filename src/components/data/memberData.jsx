@@ -1,0 +1,126 @@
+// src/data/memberData.js
+const memberData = () => {
+  return [
+    {
+      id: 201,
+      name: "Zubair Abrahams",
+      position: "Shadow Claw",
+      study: "BSc GIT",
+      imageUrl: "./images/zubair.jpg",
+    },
+    {
+      id: 202,
+      name: "Reeve Pietersen",
+      position: "Shadow Claw",
+      study: "BEd (Intermediate Phase)",
+      imageUrl: "./images/reeve.jpg",
+    },
+    {
+      id: 203,
+      name: "Eduard Albertyn",
+      position: "Shadow Claw",
+      study: "BScAgric",
+      imageUrl: "./images/eduard.jpg",
+    },
+    {
+      id: 204,
+      name: "Anro Kruger",
+      position: "Shadow Claw",
+      study: "BCom Investment Management",
+      imageUrl: "./images/anro.jpg",
+    },
+    {
+      id: 205,
+      name: "Rixaka Maluleke",
+      position: "Shadow Claw",
+      study: "BA Humanities",
+      imageUrl: "./images/rixaka.jpg",
+    },
+    {
+      id: 206,
+      name: "Kamvalethu Silekwa",
+      position: "Shadow Claw",
+      study: "BA Human Resource Management",
+      imageUrl: "./images/kamvalethu.jpg",
+    },
+    {
+      id: 207,
+      name: "Cameron May",
+      position: "Shadow Claw",
+      study: "BA Humanities",
+      imageUrl: "./images/cameron.jpg",
+    },
+    {
+      id: 208,
+      name: "Christopher Freer",
+      position: "Shadow Claw",
+      study: "BCom International Business",
+      imageUrl: "./images/christopher.jpg",
+    },
+    {
+      id: 209,
+      name: "Khangelani Mjana",
+      position: "Shadow Claw",
+      study: "BEng Mechatronics",
+      imageUrl: "./images/khangelani.jpg",
+    },
+    {
+      id: 210,
+      name: "Jacobus Blanckenberg",
+      position: "Shadow Claw",
+      study: "BCom Agricultural Economics",
+      imageUrl: "./images/jacobus.jpg",
+    },
+    {
+      id: 211,
+      name: "Johannes le Roux",
+      position: "Shadow Claw",
+      study: "BAcc",
+      imageUrl: "./images/johannes.jpg",
+    },
+    {
+      id: 212,
+      name: "Hendrik Smit",
+      position: "Shadow Claw",
+      study: "BEng Mechanical",
+      imageUrl: "./images/hendrik.jpg",
+    },
+    {
+      id: 213,
+      name: "Lwazi Zwane",
+      position: "Shadow Claw",
+      study: "BEng (Electrical & Electronics)",
+      imageUrl: "./images/lwazi.jpg",
+    },
+    {
+      id: 214,
+      name: "Luke Groeneveld",
+      position: "Shadow Claw",
+      study: "BEng (Industrial Engineering)",
+      imageUrl: "./images/luke.jpg",
+    },
+    {
+      id: 215,
+      name: "Christiaan de Beer",
+      position: "Shadow Claw",
+      study: "BEng (Mechatronics)",
+      imageUrl: "./images/christiaan.jpg",
+    },
+    {
+      id: 216,
+      name: "John-Robert Upton",
+      position: "Shadow Claw",
+      study: "BEng (Electrical & Electronic)",
+      imageUrl: "./images/johnrobert.jpg",
+    },
+    {
+      id: 217,
+      name: "Simon Du Plooy",
+      position: "Shadow Claw",
+      study: "BAcc",
+      imageUrl: "./images/simon.jpg",
+    },
+  ];
+};
+
+export default memberData;
