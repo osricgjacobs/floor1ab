@@ -1,16 +1,68 @@
-# React + Vite
+# 🦁 Floor 1AB Portal (WarPride)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
 
-Currently, two official plugins are available:
+The Floor 1AB Portal is a single-page application (SPA) built with React and Tailwind CSS. It serves as the official digital hub for the Floor 1AB community, showcasing the floor's leadership, members, and annual awards.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application uses state-based navigation (without React Router) to provide a smooth, fast user experience, and features a distinctive visual theme based on the iconic **ThunderCats** color scheme (Red, Gold/Amber, and Black/Grey).
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **State-Based Navigation:** Fast, seamless switching between sections without page reloads.
+* **Three Main Sections:**
+    * **Home:** General floor information and pictures.
+    * **Members:** Dedicated sections for **Leadership (WarPride)**, **General Members (Shadow Claws)**, and **Newcomers**.
+    * **Floor Awards:** Displays the annual floor awards, categorized alongside placeholders for weekly awards.
+* **Data Separation:** Uses dedicated JavaScript files to cleanly manage Leader, General Member, and Newcomer data.
+* **Themed Design:** Implements a custom color palette using Tailwind CSS to match the specified vibrant Red and Gold/Amber theme.
 
-## Expanding the ESLint configuration
+## 🛠️ Technology Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend:** React (functional components and hooks)
+* **Styling:** Tailwind CSS (utility-first framework)
+* **Language:** JavaScript (ES6+)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+You need **Node.js** and **npm** (or Yarn/pnpm) installed on your machine.
+
+### Installation
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone [Your Repository URL]
+    cd [Your Project Directory]
+    ```
+
+2.  **Install Dependencies:**
+    Since this project uses Tailwind CSS, ensure all necessary dependencies (React, Tailwind, PostCSS, Autoprefixer) are installed.
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Ensure File Structure:**
+    Verify that your data files are correctly placed within the `src/data` folder:
+    ```
+    src/
+    ├── components/
+    │   ├── App.jsx
+    │   ├── Members.jsx
+    │   └── ...
+    └── data/
+        ├── leaderData.jsx
+        ├── memberData.js
+        └── newcomerData.js  (Needs to be created/populated)
+    ```
+
+### Running the App
+
+Start the development server:
+
+```bash
+npm start
+# or
+yarn start
