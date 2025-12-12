@@ -1,9 +1,7 @@
 import React from "react";
 import memberData from "./data/memberData";
 import leadershipData from "./data/leaderData";
-
-// FUTURE IMPORT: This will be ready to import your specific newcomer data file
-// import newcomerData from "../data/newcomerData";
+import newcomerData from "./data/newcomerData";
 
 // --- Component structure for a single card (reused for all lists) ---
 const MemberCard = ({ member, isLeaderCard, isNewcomer }) => (
@@ -90,7 +88,7 @@ const Members = () => {
 
   // 2. Placeholder for future newcomer data array
   // You can uncomment the import and replace [] with newcomerData() once the file is ready.
-  const newcomers = [];
+  const newcomers = newcomerData();
 
   // Note: The previous logic that sliced general members is removed,
   // assuming generalMembers now holds the *true* list of non-leader, non-newcomer members.

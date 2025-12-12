@@ -29,7 +29,7 @@ const leadershipData = () => {
       name: "Joshua Arends",
       position: "Clawmaster",
       roles: "Mentor",
-      study: "BSc GIT",
+      study: "BSc Geoinformatics",
       statement: "Tech and innovation all the way.",
       imageUrl: "./images/Joshua_Arends.jpg",
       linkedin: "",
