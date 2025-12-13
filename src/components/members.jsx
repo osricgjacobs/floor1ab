@@ -118,7 +118,7 @@ const Members = () => {
 
       {/* 🧑‍🎓 GENERAL MEMBERS SECTION */}
       <h3 className="text-2xl font-bold text-amber-700 border-b-2 border-amber-300 pb-2 mb-4">
-        General Floor Members (Shadow Claws)
+        Senior Floor Members (Shadow Claws)
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         {generalMembers.map((member) => (

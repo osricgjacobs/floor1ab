@@ -183,20 +183,20 @@ const Awards = () => (
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         <div className="p-4 bg-red-50 rounded-lg shadow-sm">
-          <p className="text-xl font-semibold text-red-700">MVP of the Week</p>
-          <p className="text-sm text-gray-600 mt-1">(Most Valuable Player)</p>
+          <p className="text-xl font-semibold text-red-700">MVP of the Week: Name Surname</p>
+          <p className="text-sm text-gray-600 mt-1">(dd/mm/yyyy)</p>
         </div>
         <div className="p-4 bg-red-50 rounded-lg shadow-sm">
           <p className="text-xl font-semibold text-red-700">
-            Nuusmaker of the Week
+            Nuusmaker of the Week: Name Surname
           </p>
           <p className="text-sm text-gray-600 mt-1">
-            (Making some positive news)
+            (dd/mm/yyyy)
           </p>
         </div>
         <div className="p-4 bg-red-50 rounded-lg shadow-sm">
-          <p className="text-xl font-semibold text-red-700">Tril of the Week</p>
-          <p className="text-sm text-gray-600 mt-1">(Something bad happened)</p>
+          <p className="text-xl font-semibold text-red-700">Tril of the Week: Name Surname</p>
+          <p className="text-sm text-gray-600 mt-1">(dd/mm/yyyy)</p>
         </div>
       </div>
       <p className="text-md font-semibold text-gray-700 mt-4 text-center">

@@ -4,12 +4,14 @@ import React from "react";
 const Home = () => (
   <div className="bg-white p-8 sm:p-10 rounded-xl shadow-2xl w-full max-w-2xl text-center">
     <h2 className="text-3xl font-extrabold text-cyan-950 mb-4">
-      Welcome to the Floor! 🏛️
+      Home of the Thunder Pride
     </h2>
     <p className="text-gray-700 leading-relaxed mb-6">
-      This is the central hub for our floor community. We promote teamwork,
-      academic excellence, and a vibrant social life. Here you can find
-      information about our activities, facilities, and upcoming events.
+      1AB is still notorious for its brainrot. We say some wild things on the
+      daily and somehow make it sound profound. Fun fact: we produced both an HC
+      member and the Vice Prim for the 2026 term, proving once again that 1AB
+      breeds leaders. We're also the only floor with an entire TV show named
+      after us. Go search “The Thundercats” and see for yourself.
     </p>
 
     {/* Placeholder for pictures */}
@@ -32,9 +34,7 @@ const Home = () => (
     </div>
 
     <div className="mt-6">
-      <p className="text-lg font-semibold text-cyan-700">
-        Explore the camaraderie!
-      </p>
+      <p className="text-lg font-semibold text-cyan-700">Thundercats</p>
     </div>
   </div>
 );

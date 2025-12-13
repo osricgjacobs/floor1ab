@@ -7,7 +7,7 @@ const leadershipData = () => {
       roles: "HC",
       study: "BCom InfoSystems",
       statement: "The best floor",
-      imageUrl: "./images/Osric_Smile.jpg",
+      imageUrl: "./images/Osric_Jacobs.jpg",
       linkedin: "",
       github: "",
       instagram: "",
