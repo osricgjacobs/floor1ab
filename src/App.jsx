@@ -19,7 +19,7 @@ function App() {
     const checkSession = async () => {
       try {
         const session = await account.get();
-        setUser({ role: "member", Username: session.email.split("@")[0] }); // Fallback logic
+        setUser({ role: "member", Username: session.email.split("@")[0] });
       } catch (e) {
         setUser(null);
       } finally {
@@ -31,7 +31,6 @@ function App() {
 
   const handleMemberLogin = async (username, password) => {
     try {
-      // ✅ Queries the 'members' table using the indexes you created
       const response = await databases.listDocuments(
         DATABASE_ID,
         COLLECTION_ID,
@@ -39,7 +38,6 @@ function App() {
       );
 
       if (response.documents.length > 0) {
-        // Success: Set user to member role
         setUser({ role: "member", ...response.documents[0] });
         setCurrentView("home");
       } else {
@@ -52,7 +50,7 @@ function App() {
   };
 
   const handleGuestLogin = () => {
-    setUser({ role: "guest" });
+    setUser({ role: "guest", Username: "Guest" });
     setCurrentView("home");
   };
 
@@ -67,50 +65,80 @@ function App() {
 
   const renderContent = () => {
     switch (currentView) {
-      case "members":
-        return <Members />;
-      case "blog":
-        return <Blog />;
-      case "awards":
-        return user.role === "member" ? <Awards /> : <Home />;
+      case "members": return <Members />;
+      case "blog": return <Blog />;
+      case "awards": return user.role === "member" ? <Awards /> : <Home />;
       case "home":
-      default:
-        return <Home />;
+      default: return <Home />;
     }
   };
+
+  // 💡 Helper for reusable button styling
+  const navBtnClass = (view) => `
+    px-4 py-2 rounded-md transition-all duration-200 font-bold cursor-pointer
+    ${currentView === view 
+      ? "bg-amber-500 text-gray-900 shadow-inner" 
+      : "hover:bg-red-700 hover:text-amber-400 text-white"}
+  `;
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col">
       <header className="w-full p-4 bg-red-800 shadow-xl flex justify-between items-center text-white border-b-4 border-amber-600">
         <div
-          className="text-2xl font-black cursor-pointer"
+          className="text-2xl font-black cursor-pointer select-none flex items-center gap-2"
           onClick={() => setCurrentView("home")}
         >
           FLOOR 1AB <span className="text-amber-500">PORTAL</span>
         </div>
-        <nav className="space-x-4 font-bold">
-          <button onClick={() => setCurrentView("home")}>Home</button>
-          <button onClick={() => setCurrentView("members")}>Members</button>
-          <button onClick={() => setCurrentView("blog")}>Blog</button>
+
+        <nav className="flex items-center space-x-2">
+          <button onClick={() => setCurrentView("home")} className={navBtnClass("home")}>
+            Home
+          </button>
+          <button onClick={() => setCurrentView("members")} className={navBtnClass("members")}>
+            Members
+          </button>
+          <button onClick={() => setCurrentView("blog")} className={navBtnClass("blog")}>
+            Blog
+          </button>
+          
           {user.role === "member" && (
             <button
               onClick={() => setCurrentView("awards")}
-              className="text-amber-400"
+              className={`px-4 py-2 rounded-md transition-all duration-200 font-bold cursor-pointer border-2
+                ${currentView === "awards" 
+                  ? "bg-amber-500 border-amber-500 text-gray-900" 
+                  : "border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900"}`}
             >
               Awards
             </button>
           )}
+
+          <div className="h-8 w-[2px] bg-red-900 mx-2 hidden sm:block"></div>
+
           <button
             onClick={() => setUser(null)}
-            className="ml-4 border border-white px-2 py-1 rounded text-xs"
+            className="px-4 py-2 border-2 border-white rounded-md text-xs font-black uppercase tracking-tighter hover:bg-white hover:text-red-800 transition-all cursor-pointer"
           >
             Logout
           </button>
         </nav>
       </header>
-      <main className="flex-1 flex justify-center items-start p-8">
-        {renderContent()}
+
+      {/* 🎯 Content centered horizontally and vertically start */}
+      <main className="flex-1 flex flex-col items-center justify-start p-6 sm:p-12 overflow-x-hidden">
+        <div className="w-full max-w-4xl flex justify-center">
+          <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
+            {renderContent()}
+          </div>
+        </div>
       </main>
+
+      <footer className="bg-gray-800 p-6 text-center border-t border-gray-700">
+        <p className="text-gray-500 text-xs font-medium uppercase tracking-[0.2em]">
+          Floor 1AB © 2025 | WarPride Den
+        </p>
+      </footer>
     </div>
   );
 }
