@@ -1,68 +1,60 @@
 # 🦁 Floor 1AB Portal (WarPride)
 
 ## 📌 Overview
-
-The Floor 1AB Portal is a single-page application (SPA) built with React and Tailwind CSS. It serves as the official digital hub for the Floor 1AB community, showcasing the floor's leadership, members, and annual awards.
-
-The application uses state-based navigation (without React Router) to provide a smooth, fast user experience, and features a distinctive visual theme based on the iconic **ThunderCats** color scheme (Red, Gold/Amber, and Black/Grey).
+The Floor 1AB Portal is a secure, single-page application (SPA) built to serve as the digital headquarters for the 1AB community. It manages leadership data, resident directories, and monthly chronicles, while protecting sensitive floor history via a custom authentication layer.
 
 ## ✨ Features
 
-* **State-Based Navigation:** Fast, seamless switching between sections without page reloads.
-* **Three Main Sections:**
-    * **Home:** General floor information and pictures.
-    * **Members:** Dedicated sections for **Leadership (WarPride)**, **General Members (Shadow Claws)**, and **Newcomers**.
-    * **Floor Awards:** Displays the annual floor awards, categorized alongside placeholders for weekly awards.
-* **Data Separation:** Uses dedicated JavaScript files to cleanly manage Leader, General Member, and Newcomer data.
-* **Themed Design:** Implements a custom color palette using Tailwind CSS to match the specified vibrant Red and Gold/Amber theme.
+### 🔐 Secure Multi-Tier Access
+The portal uses a custom Appwrite-backed authentication system:
+* **Guests:** Access to the Home page, Member directory (Shadow Claws/Newcomers), and the Monthly Blog.
+* **Thundercats (Members):** Full access to all sections, including the restricted **Floor Awards** page.
+
+### 📰 Dynamic Floor Chronicles
+A live blog feed powered by Appwrite.
+* Supports rich text content and image hosting.
+* Automatically sorts posts by "Newest First" using database indexes.
+
+### 👥 Member Directory
+Categorized views for the floor hierarchy:
+* **WarPride Leadership:** Highlighted cards for floor heads.
+* **Shadow Claws:** Interactive list of general floor members.
+* **Newcomers:** A dedicated section for the latest residents.
+
+---
 
 ## 🛠️ Technology Stack
 
-* **Frontend:** React (functional components and hooks)
-* **Styling:** Tailwind CSS (utility-first framework)
-* **Language:** JavaScript (ES6+)
+* **Frontend:** React.js (Functional Components & Hooks)
+* **Backend-as-a-Service:** [Appwrite Cloud](https://appwrite.io/)
+* **Styling:** Tailwind CSS (Utility-first CSS)
+* **Build Tool:** Vite
+* **Icons/Images:** Standard URL mapping and local assets.
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
+## ⚙️ Backend Configuration (Appwrite)
 
-You need **Node.js** and **npm** (or Yarn/pnpm) installed on your machine.
+### 1. Authentication (Members Table)
+**Collection ID:** `members`
+| Attribute | Type | Size | Index |
+| :--- | :--- | :--- | :--- |
+| **Username** | String | 255 | Key Index |
+| **Password** | String | 255 | Key Index |
 
-### Installation
+### 2. Database (Blogs Table)
+**Collection ID:** `694ea7b80026d5e9f678`
+| Attribute | Type | Size | Description |
+| :--- | :--- | :--- | :--- |
+| **title** | String | 255 | Headline of the post |
+| **content** | String | 5000 | Body text |
+| **author** | String | 255 | Poster's Username |
+| **imgURL** | String | 500 | Image URL |
+| **$createdAt**| DateTime| - | Indexed for sorting|
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone [Your Repository URL]
-    cd [Your Project Directory]
-    ```
+## 🎨 Visual Identity
 
-2.  **Install Dependencies:**
-    Since this project uses Tailwind CSS, ensure all necessary dependencies (React, Tailwind, PostCSS, Autoprefixer) are installed.
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
+* **Primary Red:** `#991b1b` (Tailwind `red-800`)
+* **Accent Gold:** `#f59e0b` (Tailwind `amber-500`)
+* **Dark Base:** `#111827` (Tailwind `gray-900`)
 
-3.  **Ensure File Structure:**
-    Verify that your data files are correctly placed within the `src/data` folder:
-    ```
-    src/
-    ├── components/
-    │   ├── App.jsx
-    │   ├── Members.jsx
-    │   └── ...
-    └── data/
-        ├── leaderData.jsx
-        ├── memberData.js
-        └── newcomerData.js  (Needs to be created/populated)
-    ```
-
-### Running the App
-
-Start the development server:
-
-```bash
-npm start
-# or
-yarn start
