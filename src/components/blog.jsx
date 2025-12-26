@@ -1,27 +1,25 @@
-// src/components/Blog.jsx
 import React, { useState, useEffect } from "react";
-import { databases } from "../lib/appwrite";
+import { databases, DATABASE_ID } from "../lib/appwrite";
 import { Query } from "appwrite";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Replace these with your actual IDs from the Appwrite Console
-  const DATABASE_ID = "YOUR_DATABASE_ID";
-  const COLLECTION_ID = "YOUR_COLLECTION_ID";
+  // ✅ Use the exact Collection ID for your new blogs table
+  const BLOG_COLLECTION_ID = "blogs";
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const response = await databases.listDocuments(
           DATABASE_ID,
-          COLLECTION_ID,
-          [Query.orderDesc("$createdAt")] // Show newest posts first
+          BLOG_COLLECTION_ID,
+          [Query.orderDesc("$createdAt")] // ✅ Uses the index you created
         );
         setPosts(response.documents);
       } catch (error) {
-        console.error("Error fetching blog posts:", error);
+        console.error("Error fetching floor chronicles:", error);
       } finally {
         setLoading(false);
       }
@@ -39,56 +37,56 @@ const Blog = () => {
   }
 
   return (
-    <div className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full max-w-4xl border-t-8 border-red-700">
+    <div className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full max-w-4xl border-t-8 border-red-700 font-sans">
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-2">
-          Monthly Blog 📰
+        <h2 className="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tighter">
+          Floor 1AB <span className="text-red-700">Chronicles</span>
         </h2>
-        <p className="text-amber-700 font-bold uppercase tracking-widest">
-          Floor 1AB Chronicles
-        </p>
+        <div className="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-12">
         {posts.length > 0 ? (
           posts.map((post) => (
-            <article
-              key={post.$id}
-              className="border-b border-gray-200 pb-8 last:border-0"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-bold text-red-800">
+            <article key={post.$id} className="group">
+              <div className="flex justify-between items-baseline mb-3">
+                <h3 className="text-2xl font-bold text-gray-900 group-hover:text-red-700 transition">
                   {post.title}
                 </h3>
-                <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                <span className="text-xs font-mono text-gray-400 uppercase">
                   {new Date(post.$createdAt).toLocaleDateString()}
                 </span>
               </div>
 
-              {post.imageUrl && (
-                <img
-                  src={post.imageUrl}
-                  alt={post.title}
-                  className="w-full h-64 object-cover rounded-lg mb-4 shadow-md border border-amber-200"
-                />
+              {post.imgURL && (
+                <div className="overflow-hidden rounded-lg mb-6 shadow-lg border-2 border-gray-100">
+                  <img
+                    src={post.imgURL}
+                    alt={post.title}
+                    className="w-full h-72 object-cover transform group-hover:scale-105 transition duration-500"
+                    onError={(e) => (e.target.style.display = "none")} // Hides if image fails
+                  />
+                </div>
               )}
 
-              <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+              <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-wrap mb-6">
                 {post.content}
-              </div>
+              </p>
 
-              <div className="mt-4 flex items-center text-sm font-medium text-amber-600">
-                <span className="mr-2">By:</span>
-                <span className="text-gray-900">
-                  {post.author || "WarPride Leadership"}
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                <div className="h-8 w-8 bg-red-800 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                  {post.author?.charAt(0) || "T"}
+                </div>
+                <span className="text-sm font-bold text-gray-900 uppercase tracking-widest">
+                  Written by {post.author || "Thundercat Leader"}
                 </span>
               </div>
             </article>
           ))
         ) : (
-          <div className="text-center py-10">
-            <p className="text-gray-500 italic">
-              No chronicles have been written yet. Check back soon!
+          <div className="text-center py-20 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
+            <p className="text-gray-500 font-medium">
+              No chronicles have been recorded yet. The den is quiet...
             </p>
           </div>
         )}
