@@ -52,7 +52,7 @@ const Home = () => (
           src="./images/floor_common_room.jpg"
           alt="A Section"
           className="w-full h-32 object-cover rounded-lg shadow-md border-2 border-gray-100 hover:scale-105 transition-transform duration-300"
-          onError={(e) => (e.target.src = "https://via.placeholder.com/150?text=A+Section")}
+         // onError={(e) => (e.target.src = "")}
         />
         <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-tighter">A Section</span>
       </div>
@@ -62,7 +62,7 @@ const Home = () => (
           src="./images/floor_study_area.jpg"
           alt="B section"
           className="w-full h-32 object-cover rounded-lg shadow-md border-2 border-gray-100 hover:scale-105 transition-transform duration-300"
-          onError={(e) => (e.target.src = "https://via.placeholder.com/150?text=B+Section")}
+         // onError={(e) => (e.target.src = "")}
         />
         <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-tighter">B Section</span>
       </div>
@@ -72,7 +72,7 @@ const Home = () => (
           src="./images/floor_braai_area.jpg"
           alt="Kitchen"
           className="w-full h-32 object-cover rounded-lg shadow-md border-2 border-gray-100 hover:scale-105 transition-transform duration-300"
-          onError={(e) => (e.target.src = "https://via.placeholder.com/150?text=Kitchen")}
+         // onError={(e) => (e.target.src = "")}
         />
         <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-tighter">Kitchen</span>
       </div>
