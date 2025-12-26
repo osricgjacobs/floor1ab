@@ -1,40 +1,14 @@
 // src/components/Login.jsx
 import React, { useState } from "react";
-import { databases, DATABASE_ID, COLLECTION_ID } from "../lib/appwrite";
-import { Query } from "appwrite";
 
-const Login = ({ onLoginSuccess }) => {
+const Login = ({ onLoginSuccess, onGuestLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const handleMemberLogin = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
-
-    try {
-      // 🔍 Search the 'members' table for matching Username and Password
-      const response = await databases.listDocuments(
-        DATABASE_ID,
-        COLLECTION_ID,
-        [Query.equal("Username", username), Query.equal("Password", password)]
-      );
-
-      if (response.documents.length > 0) {
-        // Success: Pass the member's data back to App.jsx
-        onLoginSuccess({ role: "member", ...response.documents[0] });
-      } else {
-        setError("Invalid Username or Password. Are you a true Thundercat?");
-      }
-    } catch (err) {
-      console.error("Login Error:", err);
-      setError("Connection failed. Check your Appwrite settings.");
-    }
-  };
-
-  const handleGuestLogin = () => {
-    // Guests get limited access (Home, Members, Blog) but no Awards
-    onLoginSuccess({ role: "guest", name: "Guest" });
+    // ✅ Crucial: Pass only the strings, not an object
+    onLoginSuccess(username, password);
   };
 
   return (
@@ -49,20 +23,13 @@ const Login = ({ onLoginSuccess }) => {
           </p>
         </div>
 
-        {error && (
-          <div className="mb-4 p-3 bg-red-100 text-red-700 text-sm rounded border border-red-200">
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={handleMemberLogin} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-bold text-gray-700 mb-1">
               Username
             </label>
             <input
               type="text"
-              placeholder="Enter Thundercat Name"
               className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-amber-500 outline-none"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -75,7 +42,6 @@ const Login = ({ onLoginSuccess }) => {
             </label>
             <input
               type="password"
-              placeholder="••••••••"
               className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-amber-500 outline-none"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -92,7 +58,7 @@ const Login = ({ onLoginSuccess }) => {
 
         <div className="mt-6 pt-6 border-t border-gray-200">
           <button
-            onClick={handleGuestLogin}
+            onClick={onGuestLogin}
             className="w-full bg-amber-500 text-gray-900 font-bold py-3 rounded shadow-md hover:bg-amber-400 transition duration-300"
           >
             Enter as Guest
