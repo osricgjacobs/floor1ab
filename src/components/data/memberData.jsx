@@ -73,8 +73,8 @@ const memberData = () => {
     },
     {
       id: 211,
-      name: "Johannes le Roux",
-      position: "Shadow Claw",
+      name: "Johm-Matt le Roux",
+      position: "Guardian of the Vault",
       study: "BAcc",
       imageUrl: "./images/johannes.jpg",
     },
