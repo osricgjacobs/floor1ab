@@ -1,8 +1,6 @@
-// src/components/Awards.jsx - UPDATED with Floor Awards data and ThunderCats colors
-
+// src/components/Awards.jsx
 import React from "react";
 
-// The full list of annual awards extracted from the PDF
 const annualFloorAwards = [
   {
     title: "THUNDERCLOWN OF THE YEAR",
@@ -49,8 +47,7 @@ const annualFloorAwards = [
   {
     title: "DRIP KING OF THE YEAR",
     recipient: "Corné Thom",
-    summary:
-      "Stands unrivalled in the realm of looking effortlessly dapper; impeccable style is their middle name.",
+    summary: "Stands unrivalled in the realm of looking effortlessly dapper.",
   },
   {
     title: "HANELIE PALMER",
@@ -111,20 +108,17 @@ const annualFloorAwards = [
   {
     title: "SNOWBALL OF THE YEAR",
     recipient: "Aaron Kunnath",
-    summary:
-      "Embraced the snowball effect, going too heavy on the carbs and developing love handles.",
+    summary: "Embraced the snowball effect, going too heavy on the carbs.",
   },
   {
     title: "SPORTSMAN OF THE YEAR",
     recipient: "Justin Cowley",
-    summary:
-      "A human tornado on the field, a maverick of the court, a whirlwind of athleticism.",
+    summary: "A human tornado on the field, a maverick of the court.",
   },
   {
     title: "STONER OF THE YEAR",
     recipient: "Eduard Albertyn",
-    summary:
-      "A true herbal enthusiast with an interest in all things green; a puff pioneer.",
+    summary: "A true herbal enthusiast with an interest in all things green.",
   },
   {
     title: "TAPPID OF THE YEAR",
@@ -142,7 +136,7 @@ const annualFloorAwards = [
     title: "VARKHOK OF THE YEAR",
     recipient: "A-section toilet",
     summary:
-      "Exceptional dedication to embracing the chaos and creating an awe-inspiring masterpiece of untidiness.",
+      "Exceptional dedication to creating an awe-inspiring masterpiece of untidiness.",
   },
   {
     title: "VIBE OF THE YEAR",
@@ -153,59 +147,72 @@ const annualFloorAwards = [
   {
     title: "WILLIAM SHAKESPEARE",
     recipient: "Hangandiiwe Mamphaga",
-    summary:
-      "Always has a fascinating story or anecdote, gleefully draining collective time.",
+    summary: "Always has a fascinating story or anecdote.",
   },
   {
     title: "HARPOONED A WHALE",
     recipient: "Justin Cowley",
-    summary:
-      "Successfully landed a bullseye on the biggest, most slippery target imaginable.",
+    summary: "Successfully landed a bullseye on the biggest target imaginable.",
   },
   {
     title: "HOE OF THE YEAR",
     recipient: "Khangelani Mjana",
     summary:
-      "Always has a new partner in their room; admires their ability to juggle multiple partners.",
+      "Always has a new partner in their room; admires their ability to juggle.",
   },
 ];
 
 const Awards = () => (
-  <div className="bg-white p-8 sm:p-10 rounded-xl shadow-2xl w-full max-w-4xl">
-    <h2 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">
+  <div className="bg-white p-5 sm:p-10 rounded-xl shadow-2xl w-full max-w-4xl mx-auto">
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8 text-center uppercase tracking-tight">
       Floor Awards 🏆
     </h2>
 
-    {/* WEEKLY AWARDS SECTION */}
-    <div className="mb-12 border-b border-amber-300 pb-6">
-      <h3 className="text-2xl font-bold text-red-700 mb-4">
-        Weekly Recognition (After Meetings)
+    {/* 🗓️ WEEKLY AWARDS SECTION: Responsive Grid */}
+    <div className="mb-12 border-b border-amber-300 pb-8">
+      <h3 className="text-xl sm:text-2xl font-bold text-red-700 mb-6 text-center md:text-left">
+        Weekly Recognition
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div className="p-4 bg-red-50 rounded-lg shadow-sm">
-          <p className="text-xl font-semibold text-red-700">MVP of the Week: Name Surname</p>
-          <p className="text-sm text-gray-600 mt-1">(dd/mm/yyyy)</p>
-        </div>
-        <div className="p-4 bg-red-50 rounded-lg shadow-sm">
-          <p className="text-xl font-semibold text-red-700">
-            Nuusmaker of the Week: Name Surname
+      {/* 📱 grid-cols-1 for mobile, md:grid-cols-3 for desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        <div className="p-4 bg-red-50 rounded-lg border border-red-100 shadow-sm">
+          <p className="text-xs font-bold text-red-800 uppercase tracking-widest mb-1">
+            MVP
           </p>
-          <p className="text-sm text-gray-600 mt-1">
-            (dd/mm/yyyy)
+          <p className="text-lg font-bold text-gray-900 leading-tight">
+            Name Surname
+          </p>
+          <p className="text-[10px] text-gray-500 mt-2 font-mono italic">
+            DD/MM/YYYY
           </p>
         </div>
-        <div className="p-4 bg-red-50 rounded-lg shadow-sm">
-          <p className="text-xl font-semibold text-red-700">Tril of the Week: Name Surname</p>
-          <p className="text-sm text-gray-600 mt-1">(dd/mm/yyyy)</p>
+        <div className="p-4 bg-red-50 rounded-lg border border-red-100 shadow-sm">
+          <p className="text-xs font-bold text-red-800 uppercase tracking-widest mb-1">
+            Nuusmaker
+          </p>
+          <p className="text-lg font-bold text-gray-900 leading-tight">
+            Name Surname
+          </p>
+          <p className="text-[10px] text-gray-500 mt-2 font-mono italic">
+            DD/MM/YYYY
+          </p>
+        </div>
+        <div className="p-4 bg-red-50 rounded-lg border border-red-100 shadow-sm">
+          <p className="text-xs font-bold text-red-800 uppercase tracking-widest mb-1">
+            Tril
+          </p>
+          <p className="text-lg font-bold text-gray-900 leading-tight">
+            Name Surname
+          </p>
+          <p className="text-[10px] text-gray-500 mt-2 font-mono italic">
+            DD/MM/YYYY
+          </p>
         </div>
       </div>
-      <p className="text-md font-semibold text-gray-700 mt-4 text-center">
-        These are awarded live during floor meetings.
-      </p>
     </div>
 
-    {/* ANNUAL AWARDS SECTION (2025) */}
-    <h3 className="text-3xl font-bold text-amber-700 border-b-2 border-amber-400 pb-2 mb-6">
+    {/* 🏅 ANNUAL AWARDS SECTION */}
+    <h3 className="text-2xl sm:text-3xl font-bold text-amber-700 border-b-2 border-amber-400 pb-2 mb-6 uppercase tracking-tighter">
       Annual Floor Awards 2025
     </h3>
 
@@ -213,22 +220,24 @@ const Awards = () => (
       {annualFloorAwards.map((award, index) => (
         <div
           key={index}
-          className="p-4 border-l-4 border-amber-500 bg-gray-50 rounded-md shadow-sm"
+          className="p-4 border-l-8 border-amber-500 bg-gray-50 rounded-r-lg shadow-sm hover:bg-amber-50 transition-colors duration-200"
         >
-          <p className="text-lg font-bold text-gray-900">{award.title}</p>
-          <p className="text-md font-semibold text-red-700 mt-1">
-            Winner(s): {award.recipient}
+          <p className="text-xs font-black text-amber-700 uppercase tracking-widest mb-1">
+            {award.title}
           </p>
-          <p className="text-sm text-gray-600 italic mt-1">
-            *Summary: {award.summary}
+          <p className="text-xl font-bold text-gray-900 leading-none">
+            {award.recipient}
+          </p>
+          <p className="text-sm text-gray-600 italic mt-2 leading-relaxed">
+            "{award.summary}"
           </p>
         </div>
       ))}
     </div>
 
-    <div className="mt-8 text-center">
-      <p className="text-md font-semibold text-gray-700">
-        Awarded by Floor 1AB, its Residents of 2025, and Hagar.
+    <div className="mt-12 text-center pt-6 border-t border-gray-100">
+      <p className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-widest">
+        Awarded by Floor 1AB & Hagar
       </p>
     </div>
   </div>
