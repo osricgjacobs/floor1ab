@@ -134,10 +134,10 @@ const newcomerData = () => {
     },
     {
       id: 12,
-      name: "Place holder",
+      name: "Hlele Delihlazo",
       position: "Thunder cubs",
       roles: "Newcomer",
-      study: "Study",
+      study: "BEng Mechatronics",
       statement: "",
       imageUrl: "",
       linkedin: "",
